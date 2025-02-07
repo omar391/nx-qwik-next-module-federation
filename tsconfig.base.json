@@ -1,0 +1,15 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "moduleResolution": "bundler",
+    "target": "ESNext",
+    "module": "ESNext",
+    "lib": ["ESNext", "DOM"],
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "remote1/Module": ["apps/remote1/src/remote-entry.ts"],
+      "remote2/Module": ["apps/remote2/src/remote-entry.ts"]
+    }
+  }
+}
