@@ -1,10 +1,9 @@
 import NxWelcome from './nx-welcome';
-import '../styles.css';
 
 export function App() {
   return (
     <div>
-      <NxWelcome title="remote2" />
+      <NxWelcome title="remote1" />
     </div>
   );
 }

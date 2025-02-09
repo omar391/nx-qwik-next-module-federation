@@ -6,38 +6,29 @@
   "tags": [],
   "targets": {
     "build": {
-      "executor": "@nx/rspack:rspack",
+      "executor": "@nx/next:build",
       "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
-        "target": "web",
-        "outputPath": "dist/apps/remote1",
-        "index": "apps/remote1/src/index.html",
-        "main": "apps/remote1/src/main.ts",
-        "tsConfig": "apps/remote1/tsconfig.app.json",
-        "rspackConfig": "apps/remote1/rspack.config.ts",
-        "assets": ["apps/remote1/src/favicon.ico", "apps/remote1/src/assets"]
+        "outputPath": "dist/apps/remote1"
       },
       "configurations": {
         "development": {
-          "mode": "development"
+          "outputPath": "apps/remote1/.next"
         },
-        "production": {
-          "mode": "production",
-          "optimization": true,
-          "sourceMap": false,
-          "rspackConfig": "apps/remote1/rspack.config.prod.ts"
-        }
+        "production": {}
       }
     },
     "serve": {
-      "executor": "@nx/rspack:module-federation-dev-server",
+      "executor": "@nx/next:server",
       "options": {
-        "buildTarget": "remote1:build:development",
+        "buildTarget": "remote1:build",
         "port": 4201
       },
       "configurations": {
-        "development": {},
+        "development": {
+          "buildTarget": "remote1:build:development"
+        },
         "production": {
           "buildTarget": "remote1:build:production"
         }
@@ -45,21 +36,6 @@
     },
     "lint": {
       "executor": "@nx/eslint:lint"
-    },
-    "serve-static": {
-      "executor": "@nx/rspack:module-federation-static-server",
-      "defaultConfiguration": "production",
-      "options": {
-        "serveTarget": "remote1:serve"
-      },
-      "configurations": {
-        "development": {
-          "serveTarget": "remote1:serve:development"
-        },
-        "production": {
-          "serveTarget": "remote1:serve:production"
-        }
-      }
     },
     "test": {
       "executor": "@nx/jest:jest",

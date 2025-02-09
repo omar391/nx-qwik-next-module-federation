@@ -1,7 +1,8 @@
+import * as React from 'react';
 import { render } from '@testing-library/react';
 import { BrowserRouter } from 'react-router-dom';
 
-import App from './app';
+import { App } from './index';
 
 describe('App', () => {
   it('should render successfully', () => {
@@ -19,6 +20,6 @@ describe('App', () => {
         <App />
       </BrowserRouter>
     );
-    expect(getByText(new RegExp('Welcome shell', 'gi'))).toBeTruthy();
+    expect(getByText(/Welcome to shell/gi)).toBeTruthy();
   });
 });
