@@ -5,6 +5,12 @@
   "projectType": "application",
   "tags": [],
   "targets": {
+    "port-check": {
+      "executor": "./tools/port-check:check",
+      "options": {
+        "port": 4200
+      }
+    },
     "build": {
       "executor": "@nx/next:build",
       "outputs": ["{options.outputPath}"],
@@ -21,6 +27,7 @@
     },
     "serve": {
       "executor": "@nx/next:server",
+      "dependsOn": ["port-check"],
       "options": {
         "buildTarget": "shell:build",
         "port": 4200

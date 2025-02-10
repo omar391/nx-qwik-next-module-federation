@@ -19,8 +19,15 @@
         "production": {}
       }
     },
+    "port-check": {
+      "executor": "./tools/port-check:check",
+      "options": {
+        "port": 4202
+      }
+    },
     "serve": {
       "executor": "@nx/next:server",
+      "dependsOn": ["port-check"],
       "options": {
         "buildTarget": "remote2:build",
         "port": 4202

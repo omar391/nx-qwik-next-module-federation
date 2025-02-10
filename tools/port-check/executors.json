@@ -1,0 +1,10 @@
+{
+  "$schema": "https://raw.githubusercontent.com/nrwl/nx/master/packages/nx/schemas/executors-schema.json",
+  "executors": {
+    "check": {
+      "implementation": "./src/executors/port-check/executor",
+      "schema": "./src/executors/port-check/schema.json",
+      "description": "Checks if a port is available and kills any process using it"
+    }
+  }
+}

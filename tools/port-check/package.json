@@ -1,0 +1,6 @@
+{
+  "name": "port-check",
+  "version": "0.0.1",
+  "main": "src/index.ts",
+  "executors": "./executors.json"
+}

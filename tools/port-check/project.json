@@ -1,0 +1,36 @@
+{
+  "name": "port-check",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "tools/port-check/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/tools/port-check",
+        "main": "tools/port-check/src/index.ts",
+        "tsConfig": "tools/port-check/tsconfig.lib.json",
+        "buildableProjectDepsInPackageJsonType": "dependencies",
+        "assets": [
+          "tools/port-check/*.md",
+          {
+            "input": "./tools/port-check/src",
+            "glob": "**/!(*.ts)",
+            "output": "./src"
+          },
+          {
+            "input": "./tools/port-check",
+            "glob": "executors.json",
+            "output": "."
+          },
+          {
+            "input": "./tools/port-check",
+            "glob": "package.json",
+            "output": "."
+          }
+        ]
+      }
+    }
+  }
+}
